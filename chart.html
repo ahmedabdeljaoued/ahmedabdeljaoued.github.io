@@ -3,30 +3,24 @@
 
 <html>
 <title>Autos Visualisierungs Beispiel</title>
-<body>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 	<style>
-    body {
-        background: white }
-    section {
-        background: black;
-        color: white;
-        border-radius: 1em;
-        padding: 1em;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        margin-right: -50%;
-        transform: translate(-50%, -50%) }
+        p.serif {
+        font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	   }
 
-    p.serif {
-    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
-	}
-  </style>
-  <section>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<h1><p class= "serif">Autos Visualisierung</p></h1>
-	<h4><p class= "serif">Folgend ist ein Interaktiv Scatterplot-Beispiel von Autos-Datensatz (1970 - 1982) mithilfe von <a href="https://developers.google.com/chart/interactive/docs/gallery/motionchart">Google Motion Charts</a> in R Programmiersprache geschrieben.</p></h4>
+       h4 {
+        text-align: center;
+        }
+
+    </style>
 <!-- jsHeader -->
+<body>
+    <header class="w3-container w3-teal">
+        <h1>Auto Datensatz Visualisierung</h1>
+    </header>
+       <h4><p class= "serif">Folgend ist ein Interaktiv Scatterplot-Beispiel von Auto-Datensatz (1970 - 1982) mithilfe von <a href="https://developers.google.com/chart/interactive/docs/gallery/motionchart">Google Motion Charts</a> in R Programmiersprache geschrieben.</p></h4>
 <script type="text/javascript">
 // jsData 
 function gvisDataMotionChartIDacb168a0472 () {
@@ -4984,9 +4978,12 @@ callbacks.shift()();
  
 <!-- divChart -->
   
-<div id="MotionChartIDacb168a0472" 
-  style="width: 600; height: 500;">
+<div id="MotionChartIDacb168a0472" class="w3-container"
+  style="width: 700; height: 600; margin:0 auto;">
 </div>
-</section>
+
+<footer class="w3-container w3-teal">
+  <h5>Ahmed Abdeljaoued & Thilo Ilg</h5>
+</footer>
 </body>
 </html>
