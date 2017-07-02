@@ -2,11 +2,30 @@
 <!-- Sat Jul  1 18:27:56 2017 -->
 
 <html>
-<title>Autos Visualisierung</title>
+<title>Autos Visualisierungs Beispiel</title>
 <body>
-	<h1>Scatterplot von Auto Datensatz</h1>
-</body>
-</html>
+	<style>
+    body {
+        background: white }
+    section {
+        background: black;
+        color: white;
+        border-radius: 1em;
+        padding: 1em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%) }
+
+    p.serif {
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+	}
+  </style>
+  <section>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<h1><p class= "serif">Autos Visualisierung</p></h1>
+	<h4><p class= "serif">Folgend ist ein Interaktiv Scatterplot-Beispiel von Autos-Datensatz (1970 - 1982) mithilfe von <a href="https://developers.google.com/chart/interactive/docs/gallery/motionchart">Google Motion Charts</a> in R Programmiersprache geschrieben.</p></h4>
 <!-- jsHeader -->
 <script type="text/javascript">
 // jsData 
@@ -4968,3 +4987,6 @@ callbacks.shift()();
 <div id="MotionChartIDacb168a0472" 
   style="width: 600; height: 500;">
 </div>
+</section>
+</body>
+</html>
