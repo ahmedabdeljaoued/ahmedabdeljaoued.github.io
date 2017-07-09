@@ -280,6 +280,24 @@ ul#nav li.current a { color: #F06000; }
    font: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
 }
+#resume .download {
+   width: 58.33333%;
+   padding-top: 6px;
+}
+#resume .main-col { padding-right: 5%; }
+#resume .download .button {
+   margin-top: 6px;
+   background: #2B2B2B;
+   color: #fff;
+}
+#resume .download .button:hover {
+   background: #ccc;
+   color: #313131;
+}
+#resume .download .button i {
+   margin-right: 15px;
+   font-size: 20px;
+}
 
 /*----------------------------------------------*/
 /*	Skill Bars
