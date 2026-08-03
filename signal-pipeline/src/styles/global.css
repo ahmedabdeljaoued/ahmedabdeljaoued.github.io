@@ -82,7 +82,6 @@ a:hover {
   margin: 0 0 2rem;
 }
 
-/* Pipeline grid atmosphere */
 .pipeline-bg {
   position: absolute;
   inset: 0;
@@ -94,7 +93,6 @@ a:hover {
   pointer-events: none;
 }
 
-/* Nav */
 .nav {
   position: fixed;
   inset: 0 0 auto;
@@ -148,7 +146,6 @@ a:hover {
   color: var(--accent-hot);
 }
 
-/* Hero */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -381,7 +378,6 @@ a:hover {
   color: var(--accent);
 }
 
-/* About */
 .about {
   background: var(--surface-2);
 }
@@ -425,7 +421,6 @@ a:hover {
   font-size: 0.95rem;
 }
 
-/* Resume / light panels */
 .resume,
 .works {
   background: var(--surface-light);
@@ -442,7 +437,6 @@ a:hover {
   color: var(--ink-dark);
 }
 
-/* Light-panel button variants (resume / works / about) */
 .resume a.btn-primary,
 .works a.btn-primary,
 .about a.btn-primary {
@@ -664,7 +658,6 @@ a:hover {
   pointer-events: none;
 }
 
-/* Keep illustrated project art readable (less heavy black wash) */
 .project-card[data-project-open="bi-governance"] .overlay,
 .project-card[data-project-open="fullstack-app"] .overlay {
   background: linear-gradient(
@@ -686,7 +679,6 @@ a:hover {
   font-size: 0.85rem;
 }
 
-/* Project modal */
 .project-modal {
   width: min(92vw, 560px);
   max-height: min(88vh, 720px);
@@ -781,7 +773,6 @@ a:hover {
   letter-spacing: 0.08em;
 }
 
-/* Contact */
 .contact {
   background: var(--surface-2);
 }

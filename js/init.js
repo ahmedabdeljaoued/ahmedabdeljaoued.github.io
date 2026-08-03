@@ -1,14 +1,4 @@
-/*-----------------------------------------------------------------------------------
-/*
-/* Init JS
-/*
------------------------------------------------------------------------------------*/
-
- jQuery(document).ready(function($) {
-
-/*----------------------------------------------------*/
-/* Hero name typewriter
------------------------------------------------------- */
+jQuery(document).ready(function($) {
 
    (function typeHeroName() {
       var el = document.getElementById('typed-name');
@@ -46,7 +36,6 @@
             el.textContent = current.slice(0, charIndex);
 
             if (charIndex === current.length) {
-               // After a full name cycle, pause longer then start deleting
                if (phraseIndex === phrases.length - 1) {
                   setTimeout(function () {
                      deleting = true;
@@ -81,11 +70,6 @@
       setTimeout(tick, 400);
    })();
 
-
-/*----------------------------------------------------*/
-/* Smooth Scrolling
------------------------------------------------------- */
-
    $('.smoothscroll').on('click',function (e) {
 	    e.preventDefault();
 
@@ -98,11 +82,6 @@
 	        window.location.hash = target;
 	    });
 	});
-
-
-/*----------------------------------------------------*/
-/* Highlight the current section in the navigation bar
-------------------------------------------------------*/
 
 	var sections = $("section");
 	var navigation_links = $("#nav-wrap a");
@@ -126,23 +105,12 @@
 
 	});
 
-
-/*----------------------------------------------------*/
-/*	Make sure that #header-background-image height is
-/* equal to the browser height.
------------------------------------------------------- */
-
    $('header').css({ 'height': $(window).height() });
    $(window).on('resize', function() {
 
         $('header').css({ 'height': $(window).height() });
         $('body').css({ 'width': $(window).width() })
    });
-
-
-/*----------------------------------------------------*/
-/*	Fade In/Out Primary Navigation
-------------------------------------------------------*/
 
    $(window).on('scroll', function() {
 
@@ -164,11 +132,6 @@
 
 	});
 
-
-/*----------------------------------------------------*/
-/*	Modal Popup
-------------------------------------------------------*/
-
     $('.item-wrap a').magnificPopup({
 
        type:'inline',
@@ -184,10 +147,6 @@
     		$.magnificPopup.close();
     });
 
-
-/*----------------------------------------------------*/
-/*	Flexslider
-/*----------------------------------------------------*/
    $('.flexslider').flexslider({
       namespace: "flex-",
       controlsContainer: ".flex-container",
@@ -201,11 +160,4 @@
    });
 
 });
-
-
-
-
-
-
-
 

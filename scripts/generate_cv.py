@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-"""Generate an up-to-date CV PDF from portfolio content."""
-
 from pathlib import Path
 
 from fpdf import FPDF
@@ -138,7 +136,6 @@ def main():
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     pdf.output(OUT)
-    # Keep duplicate filename in sync for older links
     dup = OUT.parent / "Lebenslauf.pdf"
     dup.write_bytes(OUT.read_bytes())
     print(f"Wrote {OUT}")
