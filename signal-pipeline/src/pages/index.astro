@@ -1,0 +1,319 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { profile } from '../data/profile';
+
+const experience = (await getCollection('experience')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const certifications = (await getCollection('certifications')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const renderedExperience = await Promise.all(
+  experience.map(async (entry) => ({
+    ...entry,
+    Content: (await render(entry)).Content,
+  })),
+);
+const renderedCerts = await Promise.all(
+  certifications.map(async (entry) => ({
+    ...entry,
+    Content: (await render(entry)).Content,
+  })),
+);
+const renderedProjects = await Promise.all(
+  projects.map(async (entry) => ({
+    ...entry,
+    Content: (await render(entry)).Content,
+  })),
+);
+
+const nav = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#certifications', label: 'Certifications' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#works', label: 'Works' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<Layout>
+  <header class="nav" id="site-nav">
+    <div class="container nav-inner">
+      <a class="nav-brand" href="#top">{profile.name.split(' ')[0]} <span>/ DE</span></a>
+      <ul class="nav-links">
+        {nav.map((item) => (
+          <li><a href={item.href}>{item.label}</a></li>
+        ))}
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="pipeline-bg" aria-hidden="true"></div>
+      <div class="hero-content">
+        <h1>
+          <span id="typed-name" aria-label={profile.name}>{profile.name}.</span><span class="typed-cursor" aria-hidden="true"></span>
+        </h1>
+        <span class="signal-line" aria-hidden="true"></span>
+        <p class="hero-sub">
+          <strong>{profile.role}</strong> at
+          <a href={profile.companyUrl} target="_blank" rel="noopener noreferrer">{profile.company}</a>
+        </p>
+        <p class="hero-tagline">{profile.tagline}</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#about">About me</a>
+          <a class="btn btn-ghost" href="#experience">View experience</a>
+        </div>
+        <ul class="social">
+          <li>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">in</a>
+          </li>
+          <li>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">gh</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <p class="section-label">About</p>
+        <h2>Building data platforms that ship</h2>
+        <div class="about-grid">
+          <img class="profile-pic" src="/images/profilepic.jpg" alt={`Portrait of ${profile.name}`} />
+          <div class="about-copy">
+            {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+            <div class="about-meta">
+              <div>
+                <h3>Contact</h3>
+                <p>{profile.location}</p>
+                <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+              </div>
+              <div>
+                <h3>CV</h3>
+                <p><a class="btn btn-primary" href={profile.cv} target="_blank" rel="noopener noreferrer">Download CV</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section resume" id="experience">
+      <div class="container">
+        <div class="block">
+          <p class="section-label">Experience</p>
+          <h2>Professional path</h2>
+          <div class="timeline">
+            {renderedExperience.map(({ data, Content }) => (
+              <article class="timeline-item">
+                <h3>{data.title}</h3>
+                <p class="timeline-meta">{data.company} · {data.dates}</p>
+                <Content />
+                {data.projects?.map((project) => (
+                  <div class="subproject">
+                    <h4>{project.title}</h4>
+                    <p>{project.summary}</p>
+                    {project.technologies && (
+                      <ul class="chips">
+                        {project.technologies.map((tech) => <li>{tech}</li>)}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+                {data.technologies && !data.projects && (
+                  <ul class="chips">
+                    {data.technologies.map((tech) => <li>{tech}</li>)}
+                  </ul>
+                )}
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div class="block" id="certifications">
+          <p class="section-label">Certifications</p>
+          <h2>Verified credentials</h2>
+          <p class="section-lead">Professional certifications with public verification links.</p>
+          <div class="cert-grid">
+            {renderedCerts.map(({ data, Content }) => (
+              <article class="cert-card">
+                <div class="cert-body">
+                  <p class="cert-issuer">{data.issuer}</p>
+                  <h3>{data.title}</h3>
+                  <p>{data.dates}</p>
+                  <Content />
+                </div>
+                <a class="btn btn-verify" href={data.verifyUrl} target="_blank" rel="noopener noreferrer">
+                  {data.verifyLabel}
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        <div class="block" id="skills">
+          <p class="section-label">Skills</p>
+          <h2>Core stack</h2>
+          {profile.skills.map((group) => (
+            <div class="skill-group">
+              <h3>{group.category}</h3>
+              <ul class="chips">
+                {group.items.map((item) => <li>{item}</li>)}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div class="block">
+          <p class="section-label">Education</p>
+          <h2>Academic background</h2>
+          <div class="timeline">
+            {profile.education.map((item) => (
+              <article class="timeline-item">
+                <h3>{item.school}</h3>
+                <p class="timeline-meta">{item.degree} · {item.dates}</p>
+                <p>{item.summary}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section works" id="works">
+      <div class="container">
+        <p class="section-label">Works</p>
+        <h2>Selected project highlights</h2>
+        <p class="section-lead">Anonymized client work from recent engagements, plus an academic demo. Click a card for details.</p>
+        <div class="project-grid">
+          {renderedProjects.map((project) => (
+            <button
+              type="button"
+              class="project-card"
+              data-project-open={project.id}
+              aria-haspopup="dialog"
+              aria-controls={`project-modal-${project.id}`}
+            >
+              <img src={project.data.image} alt="" />
+              <div class="overlay">
+                <h3>{project.data.title}</h3>
+                <p>{project.data.subtitle}</p>
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {renderedProjects.map(({ id, data, Content }) => (
+        <dialog class="project-modal" id={`project-modal-${id}`} data-project-modal={id}>
+          <div class="project-modal-panel">
+            <button type="button" class="project-modal-close" data-project-close aria-label="Close">
+              ×
+            </button>
+            <img class="project-modal-image" src={data.image} alt="" />
+            <div class="project-modal-body">
+              <p class="cert-issuer">{data.academic ? 'Academic' : 'Client work'}</p>
+              <h3>{data.title}</h3>
+              <p class="timeline-meta">{data.subtitle}</p>
+              <Content />
+              <ul class="chips">
+                {data.tags.map((tag) => <li>{tag}</li>)}
+              </ul>
+              {data.link && (
+                <p>
+                  <a class="btn btn-verify" href={data.link} target="_blank" rel="noopener noreferrer">
+                    {data.linkLabel ?? 'Open link'}
+                  </a>
+                </p>
+              )}
+              <button type="button" class="btn btn-primary" data-project-close>
+                Close
+              </button>
+            </div>
+          </div>
+        </dialog>
+      ))}
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <p class="section-label">Contact</p>
+        <h2>Let’s talk platforms & pipelines</h2>
+        <div class="contact-card">
+          <div>
+            <p><strong>{profile.name}</strong></p>
+            <p>{profile.location}</p>
+            <p><a href={`mailto:${profile.email}`}>{profile.email}</a></p>
+          </div>
+          <div class="hero-actions" style="margin:0">
+            <a class="btn btn-primary" href={`mailto:${profile.email}`}>Email me</a>
+            <a class="btn btn-ghost" href={profile.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© {new Date().getFullYear()} {profile.name} · Signal / Pipeline theme · Built with Astro</p>
+    </div>
+  </footer>
+</Layout>
+
+<script>
+  import { initTypewriter } from '../scripts/typewriter';
+
+  const phrases = [
+    'Ahmed Abdeljaoued.',
+    'Ahmed.',
+    'A. Abdeljaoued.',
+    'Ahmed Abdeljaoued.',
+  ];
+
+  const el = document.getElementById('typed-name');
+  if (el) initTypewriter(el, phrases);
+
+  const nav = document.getElementById('site-nav');
+  const onScroll = () => {
+    if (!nav) return;
+    nav.classList.toggle('is-solid', window.scrollY > 24);
+  };
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  const openButtons = document.querySelectorAll<HTMLElement>('[data-project-open]');
+  const modals = document.querySelectorAll<HTMLDialogElement>('[data-project-modal]');
+
+  const closeModal = (modal: HTMLDialogElement) => {
+    if (modal.open) modal.close();
+  };
+
+  openButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const id = button.getAttribute('data-project-open');
+      const modal = document.querySelector<HTMLDialogElement>(
+        `[data-project-modal="${id}"]`,
+      );
+      modal?.showModal();
+    });
+  });
+
+  modals.forEach((modal) => {
+    modal.querySelectorAll('[data-project-close]').forEach((closeBtn) => {
+      closeBtn.addEventListener('click', () => closeModal(modal));
+    });
+
+    modal.addEventListener('click', (event) => {
+      if (event.target === modal) closeModal(modal);
+    });
+  });
+</script>

@@ -7,12 +7,79 @@
  jQuery(document).ready(function($) {
 
 /*----------------------------------------------------*/
-/* FitText Settings
+/* Hero name typewriter
 ------------------------------------------------------ */
 
-    setTimeout(function() {
-	   $('h1.responsive-headline').fitText(1, { minFontSize: '40px', maxFontSize: '90px' });
-	 }, 100);
+   (function typeHeroName() {
+      var el = document.getElementById('typed-name');
+      if (!el) return;
+
+      var phrases = [
+         'Ahmed Abdeljaoued.',
+         'Ahmed.',
+         'A. Abdeljaoued.',
+         'Ahmed Abdeljaoued.'
+      ];
+      var reduceMotion = window.matchMedia &&
+         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduceMotion) {
+         el.textContent = phrases[0];
+         return;
+      }
+
+      var phraseIndex = 0;
+      var charIndex = 0;
+      var deleting = false;
+      var typingMs = 95;
+      var deletingMs = 55;
+      var holdFullMs = 1800;
+      var holdEmptyMs = 350;
+
+      el.textContent = '';
+
+      function tick() {
+         var current = phrases[phraseIndex];
+
+         if (!deleting) {
+            charIndex += 1;
+            el.textContent = current.slice(0, charIndex);
+
+            if (charIndex === current.length) {
+               // After a full name cycle, pause longer then start deleting
+               if (phraseIndex === phrases.length - 1) {
+                  setTimeout(function () {
+                     deleting = true;
+                     tick();
+                  }, holdFullMs + 600);
+               } else {
+                  setTimeout(function () {
+                     deleting = true;
+                     tick();
+                  }, holdFullMs);
+               }
+               return;
+            }
+
+            setTimeout(tick, typingMs);
+            return;
+         }
+
+         charIndex -= 1;
+         el.textContent = current.slice(0, Math.max(charIndex, 0));
+
+         if (charIndex <= 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            setTimeout(tick, holdEmptyMs);
+            return;
+         }
+
+         setTimeout(tick, deletingMs);
+      }
+
+      setTimeout(tick, 400);
+   })();
 
 
 /*----------------------------------------------------*/
@@ -132,50 +199,6 @@
       animationSpeed: 600,
       randomize: false,
    });
-
-/*----------------------------------------------------*/
-/*	contact form
-------------------------------------------------------*/
-
-   $('form#contactForm button.submit').click(function() {
-
-      $('#image-loader').fadeIn();
-
-      var contactName = $('#contactForm #contactName').val();
-      var contactEmail = $('#contactForm #contactEmail').val();
-      var contactSubject = $('#contactForm #contactSubject').val();
-      var contactMessage = $('#contactForm #contactMessage').val();
-
-      var data = 'contactName=' + contactName + '&contactEmail=' + contactEmail +
-               '&contactSubject=' + contactSubject + '&contactMessage=' + contactMessage;
-
-      $.ajax({
-
-	      type: "POST",
-	      url: "inc/sendEmail.php",
-	      data: data,
-	      success: function(msg) {
-
-            // Message was sent
-            if (msg == 'OK') {
-               $('#image-loader').fadeOut();
-               $('#message-warning').hide();
-               $('#contactForm').fadeOut();
-               $('#message-success').fadeIn();   
-            }
-            // There was an error
-            else {
-               $('#image-loader').fadeOut();
-               $('#message-warning').html(msg);
-	            $('#message-warning').fadeIn();
-            }
-
-	      }
-
-      });
-      return false;
-   });
-
 
 });
 

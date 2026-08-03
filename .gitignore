@@ -1,0 +1,6 @@
+.venv-cv/
+__pycache__/
+*.pyc
+.DS_Store
+signal-pipeline/node_modules/
+signal-pipeline/dist/

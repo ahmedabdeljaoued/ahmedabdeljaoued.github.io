@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1B4F72"/>
+      <stop offset="100%" stop-color="#2E86C1"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#g)"/>
+  <circle cx="480" cy="80" r="90" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="100" cy="320" r="120" fill="rgba(255,255,255,0.06)"/>
+  <text x="40" y="210" fill="#ffffff" font-family="Georgia, serif" font-size="36" font-weight="700">Azure Data Platform</text>
+</svg>

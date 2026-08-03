@@ -14,9 +14,11 @@
     /* header styles
    ------------------------------------------------------------------ */
    header .banner-text h1 {
-      font: 80px/1.1em 'opensans-bold', sans-serif;
       letter-spacing: -1px;
       margin: 0 auto 12px auto;
+   }
+   header .signal-line {
+      max-width: 180px;
    }
 
 }
@@ -29,16 +31,15 @@
    ------------------------------------------------------------------ */
    header .banner { padding-bottom: 12px; }
    header .banner-text h1 {
-      font: 78px/1.1em 'opensans-bold', sans-serif;
-      letter-spacing: -1px;      
+      letter-spacing: -1px;
    }
    header .banner-text h3 {
-      font: 17px/1.9em 'librebaskerville-regular', serif;
+      font: 17px/1.7em 'librebaskerville-regular', serif;
       width: 80%;
    }
-   header .banner-text hr {
-      width: 65%;
-      margin: 12px auto;
+   header .hero-cta .button {
+      margin: 0 6px 10px;
+      padding: 11px 18px;
    }
    /* nav-wrap */
    #nav-wrap {
@@ -187,27 +188,44 @@
 
    /* Header Styles
    -------------------------------------------------------------------- */
+   header {
+      height: auto;
+      min-height: 100vh;
+      max-height: none;
+      padding: 96px 16px 72px;
+   }
    header .banner {
-      padding-bottom: 12px;
-      padding-top: 6px;
+      width: 100%;
    }
-   header .banner-text h1 { font: 68px/1.1em 'opensans-bold', sans-serif; }
+   header .banner-text h1 {
+      font-size: clamp(2rem, 9vw, 3.25rem);
+      letter-spacing: -0.5px;
+   }
    header .banner-text h3 {
-      font: 16px/1.9em 'librebaskerville-regular', serif;
-      width: 85%;
+      font: 16px/1.65em 'librebaskerville-regular', serif;
+      width: 92%;
    }
-   header .banner-text hr {
+   header .signal-line {
+      max-width: 140px;
+      margin-bottom: 18px;
+   }
+   header .hero-cta .button {
+      display: block;
       width: 80%;
-      margin: 18px auto;
+      max-width: 260px;
+      margin: 0 auto 12px;
    }
 
    /* header social links */
    header .social {
       margin: 18px 0 24px 0;
-      font-size: 24px;
-      line-height: 36px;      
+      font-size: 20px;
    }
-   header .social li { margin: 0 10px; }
+   header .social li { margin: 0 6px; }
+   header .social li a {
+      width: 42px;
+      height: 42px;
+   }
 
     /* scrolldown link */
    header .scrolldown { display: none; }
@@ -215,13 +233,36 @@
 
    /* About Section
    -------------------------------------------------------------------- */
-   #about .profile-pic { display: none; }
+   #about .profile-pic {
+      display: block;
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 24px;
+   }
+   #about .three.columns {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 12px;
+   }
    #about .download .button {
       width: 100%;
       text-align: center;
       padding: 15px 20px;
    }
    #about .main-col { padding-right: 30px; }
+   #about .contact-details,
+   #about .download {
+      width: 100%;
+   }
+
+   #resume .education .row.item,
+   #resume .work .row.item {
+      padding-left: 18px;
+   }
+   .skill-chips li {
+      font-size: 11px;
+      padding: 6px 10px;
+   }
 
 
    /* Resume Section
@@ -349,10 +390,9 @@
 
    /* header styles
    -------------------------------------------------------------------- */
-   header .banner { padding-top: 24px; }
    header .banner-text h1 {
-      font: 40px/1.1em 'opensans-bold', sans-serif;      
-      margin: 0 auto 24px auto;
+      font-size: clamp(1.85rem, 9vw, 2.5rem);
+      margin: 0 auto 16px auto;
    }
    header .banner-text h3 {
       font: 14px/1.9em 'librebaskerville-regular', sans-serif;
