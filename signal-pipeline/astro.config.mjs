@@ -5,3 +5,4 @@ export default defineConfig({
   site: 'https://ahmedabdeljaoued.github.io',
   base: '/',
 });
+
