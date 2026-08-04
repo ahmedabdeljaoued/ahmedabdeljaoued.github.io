@@ -520,6 +520,18 @@ a:hover {
   margin: 0;
 }
 
+.languages-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
+}
+
+.languages-block h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 .about-cv-row {
   margin-left: auto;
   display: inline-flex;
@@ -580,22 +592,32 @@ a:hover {
   transform: scale(1.22);
 }
 
-.coin-face-de {
+.coin-face-fr,
+.coin-face-de,
+.coin-face-uk {
   opacity: 0;
 }
 
 .coin-face-tn {
-  animation: coin-face-tn 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: coin-face-tn 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.coin-face-fr {
+  animation: coin-face-fr 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .coin-face-de {
-  animation: coin-face-de 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  animation: coin-face-de 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.coin-face-uk {
+  animation: coin-face-uk 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
 .country-name-track {
   position: relative;
   display: inline-flex;
-  min-width: 6.9rem;
+  min-width: 7.2rem;
   min-height: 1.1rem;
 }
 
@@ -616,24 +638,32 @@ a:hover {
 }
 
 .country-name-tn {
-  animation: country-name-tn 6s steps(7, end) infinite;
+  animation: country-name-tn 12s steps(6, end) infinite;
+}
+
+.country-name-fr {
+  animation: country-name-fr 12s steps(6, end) infinite;
 }
 
 .country-name-de {
-  animation: country-name-de 6s steps(7, end) infinite;
+  animation: country-name-de 12s steps(6, end) infinite;
+}
+
+.country-name-uk {
+  animation: country-name-uk 12s steps(7, end) infinite;
 }
 
 @keyframes coin-face-tn {
   0%,
-  41% {
+  19% {
     opacity: 1;
     transform: scaleX(1);
   }
-  50% {
+  25% {
     opacity: 0;
     transform: scaleX(0.08);
   }
-  90% {
+  94% {
     opacity: 0;
     transform: scaleX(0.08);
   }
@@ -643,17 +673,56 @@ a:hover {
   }
 }
 
-@keyframes coin-face-de {
+@keyframes coin-face-fr {
   0%,
-  41% {
+  19% {
     opacity: 0;
     transform: scaleX(0.08);
   }
-  50% {
+  25%,
+  44% {
     opacity: 1;
     transform: scaleX(1);
   }
-  90% {
+  50% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+}
+
+@keyframes coin-face-de {
+  0%,
+  44% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+  50%,
+  69% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+  75% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+  100% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+}
+
+@keyframes coin-face-uk {
+  0%,
+  69% {
+    opacity: 0;
+    transform: scaleX(0.08);
+  }
+  75%,
+  94% {
     opacity: 1;
     transform: scaleX(1);
   }
@@ -665,23 +734,52 @@ a:hover {
 
 @keyframes country-name-tn {
   0%,
-  4% {
+  2% {
     opacity: 1;
     width: 0;
   }
-  20% {
+  9% {
     opacity: 1;
-    width: 8.4ch;
+    width: 7.2ch;
   }
-  38% {
+  18% {
     opacity: 1;
-    width: 8.4ch;
+    width: 7.2ch;
   }
-  46% {
+  22% {
     opacity: 1;
     width: 0;
   }
-  47%,
+  23%,
+  100% {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+@keyframes country-name-fr {
+  0%,
+  25% {
+    opacity: 0;
+    width: 0;
+  }
+  27% {
+    opacity: 1;
+    width: 0;
+  }
+  34% {
+    opacity: 1;
+    width: 7.2ch;
+  }
+  43% {
+    opacity: 1;
+    width: 7.2ch;
+  }
+  47% {
+    opacity: 1;
+    width: 0;
+  }
+  48%,
   100% {
     opacity: 0;
     width: 0;
@@ -694,23 +792,52 @@ a:hover {
     opacity: 0;
     width: 0;
   }
-  54% {
+  52% {
     opacity: 1;
     width: 0;
   }
-  70% {
+  59% {
     opacity: 1;
-    width: 8.4ch;
+    width: 7.2ch;
   }
-  88% {
+  68% {
     opacity: 1;
-    width: 8.4ch;
+    width: 7.2ch;
   }
-  96% {
+  72% {
     opacity: 1;
     width: 0;
   }
-  97%,
+  73%,
+  100% {
+    opacity: 0;
+    width: 0;
+  }
+}
+
+@keyframes country-name-uk {
+  0%,
+  75% {
+    opacity: 0;
+    width: 0;
+  }
+  77% {
+    opacity: 1;
+    width: 0;
+  }
+  86% {
+    opacity: 1;
+    width: 8.4ch;
+  }
+  94% {
+    opacity: 1;
+    width: 8.4ch;
+  }
+  98% {
+    opacity: 1;
+    width: 0;
+  }
+  99%,
   100% {
     opacity: 0;
     width: 0;
