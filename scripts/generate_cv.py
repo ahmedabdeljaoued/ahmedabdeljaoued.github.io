@@ -3,7 +3,7 @@ from pathlib import Path
 
 from fpdf import FPDF
 
-OUT = Path(__file__).resolve().parents[1] / "documents" / "Lebenslauf_Ahmed_Abdeljaoued.pdf"
+OUT = Path(__file__).resolve().parents[1] / "documents" / "CV_Ahmed_Abdeljaoued.pdf"
 
 
 class CV(FPDF):
@@ -136,7 +136,7 @@ def main():
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     pdf.output(OUT)
-    dup = OUT.parent / "Lebenslauf.pdf"
+    dup = OUT.parent / "CV.pdf"
     dup.write_bytes(OUT.read_bytes())
     print(f"Wrote {OUT}")
     print(f"Wrote {dup}")

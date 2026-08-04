@@ -6,7 +6,7 @@ export const profile = {
   location: 'Berlin, Germany',
   email: 'abdeljaoued.ahmed@gmail.com',
   site: 'ahmedabdeljaoued.github.io',
-  cv: '/documents/Lebenslauf_Ahmed_Abdeljaoued.pdf',
+  cv: '/documents/CV_Ahmed_Abdeljaoued.pdf',
   linkedin: 'https://www.linkedin.com/in/ahmed-abdeljaoued',
   github: 'https://github.com/ahmedabdeljaoued',
   tagline:
