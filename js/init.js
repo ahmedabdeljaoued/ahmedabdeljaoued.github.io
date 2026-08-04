@@ -6,25 +6,18 @@ jQuery(document).ready(function($) {
 
       var phrases = [
          'Ahmed Abdeljaoued.',
-         'Ahmed.',
-         'A. Abdeljaoued.',
-         'Ahmed Abdeljaoued.'
+         'Senior Data Engineer | Lakehouse Platforms',
+         'Databricks + PySpark + Delta Lake',
+         'Power BI Analytics & Data Storytelling',
+         'Applied Data AI from design to production'
       ];
-      var reduceMotion = window.matchMedia &&
-         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-      if (reduceMotion) {
-         el.textContent = phrases[0];
-         return;
-      }
-
       var phraseIndex = 0;
       var charIndex = 0;
       var deleting = false;
-      var typingMs = 95;
-      var deletingMs = 55;
-      var holdFullMs = 1800;
-      var holdEmptyMs = 350;
+      var typingMs = 90;
+      var deletingMs = 50;
+      var holdFullMs = 1750;
+      var holdEmptyMs = 420;
 
       el.textContent = '';
 

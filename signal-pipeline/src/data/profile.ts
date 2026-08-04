@@ -13,9 +13,10 @@ export const profile = {
     'I lead the delivery of Azure lakehouse platforms, Databricks and PySpark pipelines, and analytics products — from solution design to production.',
   typedPhrases: [
     'Ahmed Abdeljaoued.',
-    'Ahmed.',
-    'A. Abdeljaoued.',
-    'Ahmed Abdeljaoued.',
+    'Senior Data Engineer | Lakehouse Platforms',
+    'Databricks + PySpark + Delta Lake',
+    'Power BI Analytics & Data Storytelling',
+    'Applied Data AI from design to production',
   ],
   about: [
     'I am a Senior Data Engineer and Technical Lead at Alexander Thamm GmbH, specializing in Azure-based data platforms, Databricks, PySpark, and modern analytics solutions. I design, develop, and maintain scalable data platforms, production-grade ETL/ELT pipelines, business intelligence solutions, and cloud-native applications.',

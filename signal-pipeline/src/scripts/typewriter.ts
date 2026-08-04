@@ -3,8 +3,7 @@ export function initTypewriter(
   phrases: string[],
   options?: { typingMs?: number; deletingMs?: number; holdMs?: number },
 ) {
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion || phrases.length === 0) {
+  if (phrases.length === 0) {
     el.textContent = phrases[0] ?? '';
     return;
   }
