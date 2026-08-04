@@ -208,6 +208,18 @@ const nav = [
                 <h3>{item.school}</h3>
                 <p class="timeline-meta">{item.degree} · {item.dates}</p>
                 <p>{item.summary}</p>
+                {'thesisUrl' in item && item.thesisUrl && (
+                  <p>
+                    <a
+                      class="btn btn-primary"
+                      href={item.thesisUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.thesisLabel ?? 'Master Thesis'}
+                    </a>
+                  </p>
+                )}
               </article>
             ))}
           </div>

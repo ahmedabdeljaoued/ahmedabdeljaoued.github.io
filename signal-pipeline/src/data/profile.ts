@@ -91,6 +91,8 @@ export const profile = {
       dates: 'October 2016 to February 2019',
       summary:
         'Graduated with a Master of International Media Computer Science. Coursework covered machine learning with Python, business analytics, and data visualization.',
+      thesisUrl: '/documents/Abstract_Masterarbeit.pdf',
+      thesisLabel: 'Master Thesis',
     },
     {
       school: 'Hochschule für Technik und Wirtschaft Berlin',
@@ -105,6 +107,8 @@ export const profile = {
       dates: 'September 2010 to July 2013',
       summary:
         'Bachelor thesis on deploying security information systems with open source tools at the National Agency for Computer Security.',
+      thesisUrl: '/documents/Bachelor_Report.pdf',
+      thesisLabel: 'Bachelor Thesis',
     },
   ],
 } as const;
