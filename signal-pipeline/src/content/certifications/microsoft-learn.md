@@ -1,10 +1,10 @@
 ---
 issuer: Microsoft
-title: Microsoft Learn Credential
+title: "Microsoft Certified: Azure Fundamentals"
 dates: Verified on Microsoft Learn
 verifyUrl: https://learn.microsoft.com/en-us/users/ahmedabdeljaoued-5270/credentials/b648ec544f8ddef3
-verifyLabel: Verify credential
+verifyLabel: Verify on Microsoft Learn
 order: 2
 ---
 
-Microsoft Learn certification credential — open the official profile page to view the full certification details and verify authenticity.
+Foundational Azure certification covering cloud concepts, Azure services, security, privacy, compliance, and pricing.

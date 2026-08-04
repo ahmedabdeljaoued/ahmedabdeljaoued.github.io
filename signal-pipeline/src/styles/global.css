@@ -260,7 +260,14 @@ a:hover {
   font-size: clamp(2.2rem, 6vw, 4.4rem);
   line-height: 1.12;
   letter-spacing: -0.03em;
-  min-height: 1.2em;
+  min-height: 2.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero h1 #typed-name {
+  display: inline;
 }
 
 .typed-cursor {
@@ -325,6 +332,7 @@ a:hover {
   font-size: 1.02rem;
   line-height: 1.55;
   max-width: 52ch;
+  min-height: 3.1em;
   margin: 0 auto 1.75rem;
 }
 
@@ -468,6 +476,12 @@ a:hover {
   color: var(--accent);
 }
 
+.social-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  display: block;
+}
+
 .about {
   background: var(--surface-2);
 }
@@ -537,6 +551,7 @@ a:hover {
   display: inline-flex;
   align-items: flex-end;
   gap: 0.7rem;
+  flex-wrap: nowrap;
 }
 
 .country-flip {
@@ -549,6 +564,8 @@ a:hover {
   border: 1px solid rgba(17, 171, 176, 0.32);
   background: rgba(17, 171, 176, 0.1);
   perspective: 700px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .country-coin {
@@ -617,8 +634,10 @@ a:hover {
 .country-name-track {
   position: relative;
   display: inline-flex;
+  width: 7.2rem;
   min-width: 7.2rem;
   min-height: 1.1rem;
+  flex-shrink: 0;
 }
 
 .country-name {
@@ -1386,4 +1405,107 @@ html[data-theme="light"] .contact-card {
 
 html[data-theme="light"] .contact-card p {
   color: #475569;
+}
+
+html[data-theme="terminal"] .resume,
+html[data-theme="terminal"] .works {
+  background: #04111f;
+  color: #e7fff3;
+}
+
+html[data-theme="terminal"] .resume .section-label,
+html[data-theme="terminal"] .works .section-label {
+  color: #4ade80;
+}
+
+html[data-theme="terminal"] .resume h2,
+html[data-theme="terminal"] .works h2,
+html[data-theme="terminal"] .timeline-item h3,
+html[data-theme="terminal"] .subproject h4,
+html[data-theme="terminal"] .skill-group h3 {
+  color: #f0fdf4;
+}
+
+html[data-theme="terminal"] .timeline-meta {
+  color: #86efac;
+}
+
+html[data-theme="terminal"] .timeline-item p,
+html[data-theme="terminal"] .section-lead {
+  color: #bbf7d0;
+}
+
+html[data-theme="terminal"] .resume a,
+html[data-theme="terminal"] .works a {
+  color: #4ade80;
+}
+
+html[data-theme="terminal"] .resume a:hover,
+html[data-theme="terminal"] .works a:hover {
+  color: #ffffff;
+}
+
+html[data-theme="terminal"] .chips li {
+  background: rgba(34, 197, 94, 0.12);
+  border-color: rgba(74, 222, 128, 0.35);
+  color: #dcfce7;
+}
+
+html[data-theme="terminal"] .block + .block {
+  border-top-color: rgba(74, 222, 128, 0.22);
+}
+
+html[data-theme="terminal"] .subproject {
+  border-top-color: rgba(74, 222, 128, 0.28);
+}
+
+html[data-theme="terminal"] .cert-card {
+  background: #0b1b2e;
+  border-left-color: #22c55e;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+  color: #e7fff3;
+}
+
+html[data-theme="terminal"] .cert-issuer {
+  color: #4ade80;
+}
+
+html[data-theme="terminal"] .cert-card h3 {
+  color: #f0fdf4;
+}
+
+html[data-theme="terminal"] .cert-card p {
+  color: #bbf7d0;
+}
+
+html[data-theme="terminal"] .timeline-item::before {
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.22);
+}
+
+html[data-theme="terminal"] .resume a.btn-primary,
+html[data-theme="terminal"] .works a.btn-primary {
+  color: #052e16;
+  background: linear-gradient(135deg, #4ade80 0%, #16a34a 100%);
+  border-color: transparent;
+}
+
+html[data-theme="terminal"] .resume a.btn-primary:hover,
+html[data-theme="terminal"] .works a.btn-primary:hover {
+  color: #052e16;
+  background: linear-gradient(135deg, #86efac 0%, #22c55e 100%);
+}
+
+html[data-theme="terminal"] .resume a.btn-verify,
+html[data-theme="terminal"] .works a.btn-verify {
+  color: #052e16;
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+html[data-theme="terminal"] .resume a.btn-verify:hover,
+html[data-theme="terminal"] .works a.btn-verify:hover {
+  color: #052e16;
+  background: #4ade80;
+  border-color: #4ade80;
 }
