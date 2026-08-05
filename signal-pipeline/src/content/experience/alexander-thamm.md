@@ -9,21 +9,21 @@ technologies:
   - PySpark
   - Power BI
 projects:
-  - title: German Automotive Manufacturer (R&D) — Technical Lead & Senior Data Engineer (April 2024 - Present)
+  - title: Automotive Manufacturer (R&D) — Technical Lead & Senior Data Engineer (April 2024 - Present)
     summary: Technical leadership of a business-critical web application and its data platform. Next.js / NestJS delivery, REST and webhook integrations, and large-scale Databricks synchronization.
     technologies:
       - Next.js
       - NestJS
       - Databricks
       - Azure
-  - title: German Automotive Manufacturer (Planning) — Technical Lead & Senior Data Engineer (May 2025 - Present)
+  - title: Automotive Manufacturer (Planning) — Technical Lead & Senior Data Engineer (May 2025 - Present)
     summary: Directed the BI platform and enterprise reporting. Reusable Python wheel packages, Databricks Jobs, Unity Catalog governance, and Power BI with RBAC/RLS.
     technologies:
       - Unity Catalog
       - PySpark
       - Power BI
       - Delta Lake
-  - title: German Wholesale Company — Data Engineer
+  - title: Wholesale Company — Data Engineer
     summary: Maintained and enhanced the enterprise Azure Data Warehouse and BI platform. Built ETL/ELT pipelines with Databricks and PySpark, Delta Lake curation, Azure Data Factory orchestration, and Power BI dashboards.
     technologies:
       - Azure Databricks
